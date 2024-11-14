@@ -28,6 +28,15 @@ class Progrma
                 case 5:
                     menu.ExecuteMenuSnackBar(condicionais);
                     break;
+                case 6:
+                    menu.ExecuteMenuIndicateGap(condicionais);
+                    break;
+                case 7:
+                    menu.ExecuteMenuIndicateQuadrant(condicionais);
+                    break;
+                case 8:
+                    menu.ExecuteMenuTaxPayment(condicionais);
+                    break;
                 case 0:
                     Console.WriteLine("Saindo do programa...");
                     break;
@@ -47,6 +56,10 @@ class Progrma
         Console.WriteLine("2 - Par ou Ímpar");
         Console.WriteLine("3 - Múltiplos");
         Console.WriteLine("4 - Tempo de Jogo");
+        Console.WriteLine("5 - Snack Bar");
+        Console.WriteLine("6 - Intervalo");
+        Console.WriteLine("7 - Quadrante");
+        Console.WriteLine("8 - Imposto de Renda");
         Console.WriteLine("0 - Sair");
         Console.WriteLine("Obs: Para números não inteiros, utilize a vírgula (,).");
         Console.Write("\nDigite o Número da Opção Desejada: ");

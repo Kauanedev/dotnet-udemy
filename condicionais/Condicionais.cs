@@ -44,16 +44,6 @@ namespace condicionais
 
         public void SnackBar(int cod, int qtd)
         {
-            console.WriteLine("---- Menu ----")
-            Console.WriteLine("Código | Produto | Preço");
-            Console.WriteLine("  1    |  Cachorro Quente | R$ 4,00");
-            Console.WriteLine("  2    |  X-Salada | R$ 4,50");
-            Console.WriteLine("  3    |  X-Bacon | R$ 5,00");
-            Console.WriteLine("  4    |  Torrada Simples | R$ 2,00");
-            Console.WriteLine("  5    |  Refrigerante | R$ 1, 50");
-
-            console.Write("Digite o código do produto desejado: ");
-            cod = int.Parse(Console.ReadLine());
             switch (cod)
             {
                 case 1:
@@ -76,6 +66,50 @@ namespace condicionais
                     break;
             }
 
+        }
+
+        public void IndicateGap(double num)
+        {
+            if (num >= 0 && num <= 25) Console.WriteLine("\n--> Intervalo [0,25]");
+            else if (num > 25 && num <= 50) Console.WriteLine("\n--> Intervalo (25,50]");
+            else if (num > 50 && num <= 75) Console.WriteLine("\n--> Intervalo (50,75]");
+            else if (num > 75 && num <= 100) Console.WriteLine("\n--> Intervalo (75,100]");
+
+            else Console.WriteLine("\n--> Fora de intervalo");
+        }
+
+        public void IndicateQuadrant(double x, double y)
+        {
+            if (x > 0 && y < 0) Console.WriteLine("\n--> Q4");
+            else if (x == 0) Console.WriteLine("\n--> Eixo X");
+            else if (y == 0) Console.WriteLine("\n--> Eixo Y");
+            else if (x > 0 && y > 0) Console.WriteLine("\n--> Q1");
+            else if (x < 0 && y > 0) Console.WriteLine("\n--> Q2");
+            else if (x < 0 && y < 0) Console.WriteLine("\n--> Q3");
+
+            else Console.WriteLine("\n--> Origem");
+        }
+
+        public void TaxPayment(double salary)
+        {
+            double tax;
+
+            if (salary <= 2000) Console.WriteLine("\n--> Isento");
+            else if (salary <= 3000)
+            {
+                tax = (salary - 2000) * 0.08;
+                Console.WriteLine($"\n--> R$ {tax}");
+            }
+            else if (salary <= 4500)
+            {
+                tax = (salary - 3000) * 0.18 + 1000 * 0.08;
+                Console.WriteLine($"\n--> R$ {tax}");
+            }
+            else
+            {
+                tax = (salary - 4500) * 0.28 + 1500 * 0.18 + 1000 * 0.08;
+                Console.WriteLine($"\n--> R$ {tax}");
+            }
         }
     }
 }
