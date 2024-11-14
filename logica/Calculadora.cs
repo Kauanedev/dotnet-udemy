@@ -7,7 +7,7 @@ namespace logica
 {
     public class Calculadora
     {
-        public static void Soma(int a, int b)
+        public void Soma(int a, int b)
         {
             try
             {

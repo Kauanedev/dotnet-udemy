@@ -1,87 +1,123 @@
-﻿using logica;
-
-
-int a, b, c, d, ex, num, hrs;
-double valorHora, A, B, C;
-Calculadora calc = new();
-
-Console.WriteLine("\n---------------- Menu de Exercícios ---------------- ");
-Console.WriteLine("\n1 - Soma");
-Console.WriteLine("2 - Área do Circulo");
-Console.WriteLine("3 - Diferença do Produto");
-Console.WriteLine("4 - Salário");
-Console.WriteLine("5 - Valor da Compra");
-Console.WriteLine("6 - Calcular Áreas");
-
-Console.WriteLine("\nDigite o Número do Exercício Desejado: ");
-ex = Convert.ToInt32(Console.ReadLine());
-switch (ex)
+﻿using System.Xml.Linq;
+using logica;
+class Program
 {
-    case 1:
-        Console.WriteLine("\nExercício 01");
-        Console.WriteLine("---------------------------------------------");
-        Console.WriteLine("Digite Apenas Números Inteiros ");
+    static void Main(string[] args)
+    {
+        Calculadora calc = new();
+        int option;
+
+        do
+        {
+            option = ReadOption();
+            switch (option)
+            {
+                case 1:
+                    ExecutarMenuSoma(calc);
+                    break;
+                case 2:
+                    ExecutarMenuAreaCirculo(calc);
+                    break;
+                case 3:
+                    ExecutarMenuDiferencaProduto(calc);
+                    break;
+                case 4:
+                    ExecutarMenuSalario(calc);
+                    break;
+                case 5:
+                    ExecutarMenuValorCompra(calc);
+                    break;
+                case 6:
+                    ExecutarMenuAreasGeometricas(calc);
+                    break;
+                case 0:
+                    Console.WriteLine("Saindo do programa...");
+                    break;
+                default:
+                    Console.WriteLine("Opção inválida! Tente novamente.");
+                    break;
+            }
+        } while (option != 0);
+    }
+
+    static int ReadOption()
+    {
+        {
+            int opcao;
+            while (!int.TryParse(Console.ReadLine(), out opcao))
+            {
+                Console.Write("Opção inválida! Digite um número: ");
+            }
+            return opcao;
+        }
+    }
+
+    static void ExecutarMenuSoma(Calculadora calc)
+    {
+        Console.WriteLine("\nExercício 01 - Soma");
 
         Console.Write("Digite o Primeiro Número: ");
-        a = Convert.ToInt32(Console.ReadLine());
+        int a = Convert.ToInt32(Console.ReadLine());
 
         Console.Write("Digite o Segundo Número: ");
-        b = Convert.ToInt32(Console.ReadLine());
+        int b = Convert.ToInt32(Console.ReadLine());
 
-        Calculadora.Soma(a, b);
-        break;
-    case 2:
-        double r;
-        Console.WriteLine("\nExercício 02");
-        Console.WriteLine("---------------------------------------------");
+        calc.Soma(a, b);
+    }
+
+    static void ExecutarMenuAreaCirculo(Calculadora calc)
+    {
+        Console.WriteLine("\nExercício 02 - Área do Circulo");
         Console.Write("Digite o Raio do Circulo: ");
-        r = Convert.ToDouble(Console.ReadLine());
+
+        double r = Convert.ToDouble(Console.ReadLine());
 
         calc.AreaCirculo(r);
-        break;
-    case 3:
-        Console.WriteLine("\nExercício 03");
-        Console.WriteLine("---------------------------------------------");
+    }
+
+    static void ExecutarMenuDiferencaProduto(Calculadora calc)
+    {
+        Console.WriteLine("\nExercício 03 - Diferença do Produto");
+
         Console.Write("Digite o Primeiro Número: ");
-        a = Convert.ToInt32(Console.ReadLine());
+        int a = Convert.ToInt32(Console.ReadLine());
 
         Console.Write("Digite o Segundo Número: ");
-        b = Convert.ToInt32(Console.ReadLine());
+        int b = Convert.ToInt32(Console.ReadLine());
 
         Console.Write("Digite o Terceiro Número: ");
-        c = Convert.ToInt32(Console.ReadLine());
+        int c = Convert.ToInt32(Console.ReadLine());
 
         Console.Write("Digite o Quarto Número: ");
-        d = Convert.ToInt32(Console.ReadLine());
+        int d = Convert.ToInt32(Console.ReadLine());
 
         calc.DiferencaProduto(a, b, c, d);
-        break;
-    case 4:
-        Console.WriteLine("\nExercício 04");
-        Console.WriteLine("---------------------------------------------");
+    }
+
+    static void ExecutarMenuSalario(Calculadora calc)
+    {
+        Console.WriteLine("\nExercício 04 - Salário");
 
         Console.Write("Digite o Número do Funcionário: ");
-        num = Convert.ToInt32(Console.ReadLine());
+        int num = Convert.ToInt32(Console.ReadLine());
 
         Console.Write("Digite o Número de Horas Trabalhadas: ");
-        hrs = Convert.ToInt32(Console.ReadLine());
+        int hrs = Convert.ToInt32(Console.ReadLine());
 
         Console.Write("Digite o Valor da Hora: ");
-        valorHora = Convert.ToDouble(Console.ReadLine());
+        double valorHora = Convert.ToDouble(Console.ReadLine());
 
         calc.Salario(num, hrs, valorHora);
-        break;
-    case 5:
-        Console.WriteLine("\nExercício 05");
-        Console.WriteLine("---------------------------------------------");
+    }
 
-
+    static void ExecutarMenuValorCompra(Calculadora calc)
+    {
         int option;
         do
         {
-            Console.WriteLine("\n---------------- Menu de Opções ---------------- ");
-            Console.WriteLine("\n1 - Calcular valor da compra de várias peças");
-            Console.WriteLine("0 - Sair");
+            Console.WriteLine("\n--- Menu de Valor da Compra ---");
+            Console.WriteLine("1 - Calcular valor da compra de várias peças");
+            Console.WriteLine("0 - Voltar ao menu principal");
             Console.Write("Escolha uma opção: ");
             option = Convert.ToInt32(Console.ReadLine());
 
@@ -96,27 +132,23 @@ switch (ex)
                     Console.WriteLine("Opção inválida! Tente novamente.");
                     break;
             }
-
         } while (option != 0);
-        break;
-    case 6:
-        Console.WriteLine("\nExercício 06");
-        Console.WriteLine("---------------------------------------------");
+    }
+
+    static void ExecutarMenuAreasGeometricas(Calculadora calc)
+    {
+        Console.WriteLine("\nExercício 06 - Calcular Áreas");
 
         Console.Write("Digite um valor para A: ");
-        A = Convert.ToDouble(Console.ReadLine());
+        double A = Convert.ToDouble(Console.ReadLine());
 
         Console.Write("Digite um valor para B: ");
-        B = Convert.ToDouble(Console.ReadLine());
+        double B = Convert.ToDouble(Console.ReadLine());
 
         Console.Write("Digite um valor para C: ");
-        C = Convert.ToDouble(Console.ReadLine());
+        double C = Convert.ToDouble(Console.ReadLine());
 
         calc.CalcularAreas(A, B, C);
-        break;
+    }
 
-    default:
-        Console.WriteLine("Opção Inválida");
-        break;
 }
-
