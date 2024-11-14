@@ -11,7 +11,7 @@ namespace logica
         {
             try
             {
-                Console.WriteLine($"A soma dos numeros é: {a + b}");
+                Console.WriteLine($"\n---> A soma dos numeros é: {a + b}");
             }
             catch (Exception e)
             {
@@ -26,7 +26,7 @@ namespace logica
                 {
                     throw new Exception("O raio não pode ser negativo");
                 }
-                Console.WriteLine($"A área do circulo é: {Math.Round(Math.PI * Math.Pow(r, 2), 4)}");
+                Console.WriteLine($"\n---> A área do circulo é: {Math.Round(Math.PI * Math.Pow(r, 2), 4)}");
             }
             catch (Exception e)
             {
@@ -37,7 +37,7 @@ namespace logica
         {
             try
             {
-                Console.WriteLine($"A diferença do produto é: {(a * b) - (c * d)}");
+                Console.WriteLine($"\n---> A diferença do produto é: {(a * b) - (c * d)}");
             }
             catch (Exception e)
             {
@@ -50,7 +50,7 @@ namespace logica
             {
                 double salary = hrs * valorHora;
 
-                Console.WriteLine($"Number: {num}");
+                Console.WriteLine($"\nNumber: {num}");
                 Console.WriteLine($"Salary: {Math.Round(salary, 2)}");
             }
             catch (Exception e)
@@ -96,7 +96,7 @@ namespace logica
             double areaQuadrado = Math.Pow(B, 2);
             double areaRetangulo = A * B;
 
-            Console.WriteLine($"TRIANGULO: {Math.Round(areaTriangulo, 3)}");
+            Console.WriteLine($"\nTRIANGULO: {Math.Round(areaTriangulo, 3)}");
             Console.WriteLine($"CIRCULO: {Math.Round(areaCirculo, 3)}");
             Console.WriteLine($"TRAPEZIO: {Math.Round(areaTrapezio, 3)}");
             Console.WriteLine($"QUADRADO: {Math.Round(areaQuadrado, 3)}");
