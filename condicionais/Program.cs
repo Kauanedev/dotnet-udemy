@@ -1,5 +1,4 @@
 ﻿using condicionais;
-
 class Progrma
 {
     static void Main(string[] args)
@@ -18,7 +17,16 @@ class Progrma
                     menu.ExecuteMenuIsNegative(condicionais);
                     break;
                 case 2:
+                    menu.ExecuteMenuIsEven(condicionais);
+                    break;
+                case 3:
                     menu.ExecuteMenuAreMultiples(condicionais);
+                    break;
+                case 4:
+                    menu.ExecuteMenuGameTime(condicionais);
+                    break;
+                case 5:
+                    menu.ExecuteMenuSnackBar(condicionais);
                     break;
                 case 0:
                     Console.WriteLine("Saindo do programa...");
@@ -35,12 +43,10 @@ class Progrma
     static void MostrarMenuPrincipal()
     {
         Console.WriteLine("\n---------------- Menu Principal ----------------");
-        Console.WriteLine("1 - É Negativo");
-        Console.WriteLine("2 - Área do Circulo");
-        Console.WriteLine("3 - Diferença do Produto");
-        Console.WriteLine("4 - Salário");
-        Console.WriteLine("5 - Valor da Compra");
-        Console.WriteLine("6 - Calcular Áreas");
+        Console.WriteLine("1 - Número Negativo");
+        Console.WriteLine("2 - Par ou Ímpar");
+        Console.WriteLine("3 - Múltiplos");
+        Console.WriteLine("4 - Tempo de Jogo");
         Console.WriteLine("0 - Sair");
         Console.WriteLine("Obs: Para números não inteiros, utilize a vírgula (,).");
         Console.Write("\nDigite o Número da Opção Desejada: ");
