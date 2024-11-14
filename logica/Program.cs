@@ -1,19 +1,22 @@
-﻿using System.Xml.Linq;
+﻿using System.ComponentModel.Design;
+using System.Xml.Linq;
 using logica;
 class Program
 {
     static void Main(string[] args)
     {
         Calculadora calc = new();
+        Menu menu = new();
         int option;
 
         do
         {
+            MostrarMenuPrincipal();
             option = ReadOption();
             switch (option)
             {
                 case 1:
-                    ExecutarMenuSoma(calc);
+                    menu.ExecutarMenuSoma(calc);
                     break;
                 case 2:
                     ExecutarMenuAreaCirculo(calc);
@@ -40,6 +43,19 @@ class Program
         } while (option != 0);
     }
 
+    static void MostrarMenuPrincipal()
+    {
+        Console.WriteLine("\n---------------- Menu Principal ----------------");
+        Console.WriteLine("1 - Soma");
+        Console.WriteLine("2 - Área do Circulo");
+        Console.WriteLine("3 - Diferença do Produto");
+        Console.WriteLine("4 - Salário");
+        Console.WriteLine("5 - Valor da Compra");
+        Console.WriteLine("6 - Calcular Áreas");
+        Console.WriteLine("0 - Sair");
+        Console.Write("\nDigite o Número da Opção Desejada: ");
+    }
+
     static int ReadOption()
     {
         {
@@ -50,19 +66,6 @@ class Program
             }
             return opcao;
         }
-    }
-
-    static void ExecutarMenuSoma(Calculadora calc)
-    {
-        Console.WriteLine("\nExercício 01 - Soma");
-
-        Console.Write("Digite o Primeiro Número: ");
-        int a = Convert.ToInt32(Console.ReadLine());
-
-        Console.Write("Digite o Segundo Número: ");
-        int b = Convert.ToInt32(Console.ReadLine());
-
-        calc.Soma(a, b);
     }
 
     static void ExecutarMenuAreaCirculo(Calculadora calc)
