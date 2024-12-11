@@ -35,6 +35,7 @@
 <p align="center">
     <img alt="Terminal" title="#Terminal" src="/condicionais/assets/snackBarMenu.png"/>
 </p>
+
 - [x] Indicate number range intervals
 - [x] Identify Cartesian quadrant based on coordinates
 - [x] Calculate income tax based on salary
